@@ -7,6 +7,7 @@
 size = Vector2(128, 128)
 
 [node name="DragObject" type="Area2D"]
+collision_layer = 2
 script = ExtResource("1_ncgpm")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

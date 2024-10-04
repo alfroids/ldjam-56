@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://cdyuf34e6gxn2"]
+
+[ext_resource type="PackedScene" uid="uid://dt1fwuqb7fklg" path="res://scenes/drag_object/drag_object.tscn" id="1_w1yv1"]
+[ext_resource type="PackedScene" uid="uid://bnh3seklxbuyq" path="res://scenes/drop_area/drop_area.tscn" id="2_8snvk"]
+
+[node name="World" type="Node2D"]
+
+[node name="DropArea" parent="." instance=ExtResource("2_8snvk")]
+position = Vector2(-313, -151)
+
+[node name="DragObject" parent="." instance=ExtResource("1_w1yv1")]
+position = Vector2(298, 154)
+
+[node name="Camera2D" type="Camera2D" parent="."]

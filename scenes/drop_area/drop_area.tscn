@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://bnh3seklxbuyq"]
+
+[ext_resource type="Texture2D" uid="uid://dgnmu8cav85aj" path="res://icon.svg" id="1_d6ah2"]
+[ext_resource type="Script" path="res://scenes/drop_area/drop_area.gd" id="1_llus2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qj6fb"]
+size = Vector2(128, 128)
+
+[node name="DropArea" type="Area2D"]
+collision_mask = 2
+script = ExtResource("1_llus2")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0, 0, 0, 1)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("1_d6ah2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_qj6fb")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="area_exited" from="." to="." method="_on_area_exited"]
