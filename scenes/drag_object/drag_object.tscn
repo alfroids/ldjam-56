@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://dt1fwuqb7fklg"]
+
+[ext_resource type="Texture2D" uid="uid://dgnmu8cav85aj" path="res://icon.svg" id="1_fdgdj"]
+[ext_resource type="Script" path="res://scenes/drag_object/drag_object.gd" id="1_ncgpm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l0vtu"]
+size = Vector2(128, 128)
+
+[node name="DragObject" type="Area2D"]
+script = ExtResource("1_ncgpm")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_fdgdj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_l0vtu")
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
