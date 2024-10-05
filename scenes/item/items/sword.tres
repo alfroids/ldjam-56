@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=4 format=3 uid="uid://cr0fuepo0jcax"]
+
+[ext_resource type="Script" path="res://scenes/item/item_data.gd" id="1_3d1aq"]
+[ext_resource type="Texture2D" uid="uid://yqlgucfhmvl1" path="res://assets/tiny_dungeon.png" id="2_6pbtu"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gew5o"]
+atlas = ExtResource("2_6pbtu")
+region = Rect2(119, 136, 16, 16)
+
+[resource]
+script = ExtResource("1_3d1aq")
+texture = SubResource("AtlasTexture_gew5o")
+type = 3

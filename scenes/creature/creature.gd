@@ -12,6 +12,8 @@ func _ready() -> void:
 	if data and data.texture:
 		sprite_2d.texture = data.texture
 
+	CycleManager.period_started.connect(_on_cycle_manager_period_started)
+
 
 func _on_area_entered(_area: Area2D) -> void:
 	sprite_2d.scale = 4 * Vector2.ONE
@@ -21,14 +23,27 @@ func _on_area_exited(_area: Area2D) -> void:
 	sprite_2d.scale = 3 * Vector2.ONE
 
 
+func _on_cycle_manager_period_started(period: CycleManager.PERIOD) -> void:
+	if period & data.active_period:
+		visible = true
+		monitoring = true
+		monitorable = true
+
+	else:
+		visible = false
+		monitoring = false
+		monitorable = false
+
+
 func collect(item: Item) -> bool:
-	if item.type == data.request:
-		spawn_reward()
-		return true
+	for trade in data.trades:
+		if trade.request == item.type or trade.request == ItemManager.ITEM_TYPE.ANY:
+			spawn_reward(trade.reward)
+			return true
 
 	return false
 
 
-func spawn_reward() -> void:
+func spawn_reward(reward_data: ItemData) -> void:
 	var pos: Vector2 = reward_spawn_position.global_position if reward_spawn_position else global_position
-	ItemManager.spawn_item(data.reward, pos)
+	ItemManager.spawn_item(reward_data, pos)

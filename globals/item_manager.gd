@@ -8,6 +8,7 @@ enum ITEM_TYPE {
 	SWORD,
 	HONEY,
 	MUSHROOM,
+	ANY,
 }
 
 @onready var item_scene: PackedScene = preload("res://scenes/item/item.tscn")
