@@ -1,14 +1,28 @@
-[gd_scene load_steps=3 format=3 uid="uid://cdyuf34e6gxn2"]
+[gd_scene load_steps=5 format=3 uid="uid://cdyuf34e6gxn2"]
 
-[ext_resource type="PackedScene" uid="uid://dt1fwuqb7fklg" path="res://scenes/drag_object/drag_object.tscn" id="1_w1yv1"]
-[ext_resource type="PackedScene" uid="uid://bnh3seklxbuyq" path="res://scenes/drop_area/drop_area.tscn" id="2_8snvk"]
+[ext_resource type="Script" path="res://scenes/world/cameraman.gd" id="1_vmgys"]
+[ext_resource type="PackedScene" uid="uid://dt1fwuqb7fklg" path="res://scenes/item/item.tscn" id="1_w1yv1"]
+[ext_resource type="PackedScene" uid="uid://8paq0btdr4a" path="res://scenes/map/map.tscn" id="2_v43ui"]
+[ext_resource type="PackedScene" uid="uid://cffirh2waccm7" path="res://scenes/creature/creature.tscn" id="4_8rj3d"]
 
 [node name="World" type="Node2D"]
 
-[node name="DropArea" parent="." instance=ExtResource("2_8snvk")]
-position = Vector2(-313, -151)
+[node name="Cameraman" type="Node2D" parent="."]
+script = ExtResource("1_vmgys")
+speed = 350.0
 
-[node name="DragObject" parent="." instance=ExtResource("1_w1yv1")]
-position = Vector2(298, 154)
+[node name="Camera2D" type="Camera2D" parent="Cameraman"]
+position_smoothing_enabled = true
+position_smoothing_speed = 8.0
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="Map" parent="." instance=ExtResource("2_v43ui")]
+
+[node name="Creature" parent="." node_paths=PackedStringArray("reward_spawn_position") instance=ExtResource("4_8rj3d")]
+position = Vector2(-243, 0)
+reward_spawn_position = NodePath("Marker2D")
+
+[node name="Marker2D" type="Marker2D" parent="Creature"]
+position = Vector2(-80, 0)
+
+[node name="Item" parent="." instance=ExtResource("1_w1yv1")]
+position = Vector2(45, 208)
