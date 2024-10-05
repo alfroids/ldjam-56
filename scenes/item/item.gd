@@ -9,6 +9,7 @@ var type: ItemManager.ITEM_TYPE:
 
 @onready var is_in_focus: bool = false
 @onready var is_grabbed: bool = false
+@onready var is_in_storage: bool = false
 @onready var offset: Vector2 = Vector2.ZERO
 @onready var sprite_2d: Sprite2D = $Sprite2D as Sprite2D
 
@@ -18,6 +19,8 @@ func _ready() -> void:
 
 	if data and data.texture:
 		sprite_2d.texture = data.texture
+
+	CycleManager.period_started.connect(_on_cycle_manager_period_started)
 
 
 func _process(_delta: float) -> void:
@@ -52,3 +55,8 @@ func _on_mouse_entered() -> void:
 func _on_mouse_exited() -> void:
 	is_in_focus = false
 	sprite_2d.material.set_shader_parameter(&"outline_width", 0)
+
+
+func _on_cycle_manager_period_started(_period: CycleManager.PERIOD) -> void:
+	if not is_in_storage:
+		queue_free()

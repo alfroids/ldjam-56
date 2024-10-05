@@ -6,6 +6,7 @@ extends Node2D
 
 func _ready() -> void:
 	CycleManager.period_started.connect(_on_cycle_manager_period_started)
+	CycleManager.reset_cycles()
 
 
 func _on_cycle_manager_period_started(period: CycleManager.PERIOD) -> void:

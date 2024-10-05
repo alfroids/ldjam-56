@@ -1,8 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://cffirh2waccm7"]
+[gd_scene load_steps=5 format=3 uid="uid://cffirh2waccm7"]
 
 [ext_resource type="Script" path="res://scenes/creature/creature.gd" id="1_qu68n"]
 [ext_resource type="Texture2D" uid="uid://yqlgucfhmvl1" path="res://assets/tiny_dungeon.png" id="1_t4vku"]
-[ext_resource type="PackedScene" uid="uid://fmwbmm57wexb" path="res://scenes/request_bubble/request_bubble.tscn" id="4_cdxym"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_f8dp0"]
 atlas = ExtResource("1_t4vku")
@@ -22,10 +21,6 @@ region_rect = Rect2(17, 119, 16, 16)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_5nwvi")
-
-[node name="RequestBubble" parent="." instance=ExtResource("4_cdxym")]
-visible = false
-position = Vector2(24, -24)
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="area_exited" from="." to="." method="_on_area_exited"]

@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="CreatureData" load_steps=7 format=3 uid="uid://clvshlt4w64ux"]
+
+[ext_resource type="Script" path="res://scenes/creature/creature_data.gd" id="1_hqf5l"]
+[ext_resource type="Script" path="res://scenes/creature/trade_data.gd" id="2_lvgne"]
+[ext_resource type="Texture2D" uid="uid://ddc4l5sqiv5mq" path="res://assets/tiny_town.png" id="2_uwelr"]
+[ext_resource type="Resource" uid="uid://cvbvmwey8a4fq" path="res://scenes/item/items/honey.tres" id="4_gt33r"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6vlut"]
+atlas = ExtResource("2_uwelr")
+region = Rect2(170, 119, 16, 16)
+
+[sub_resource type="Resource" id="Resource_1vp2l"]
+script = ExtResource("2_lvgne")
+request = 1
+reward = ExtResource("4_gt33r")
+
+[resource]
+script = ExtResource("1_hqf5l")
+texture = SubResource("AtlasTexture_6vlut")
+active_period = 3
+trades = Array[ExtResource("2_lvgne")]([SubResource("Resource_1vp2l")])

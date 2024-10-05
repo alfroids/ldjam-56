@@ -1,8 +1,13 @@
+@tool
 class_name Creature
 extends Area2D
 
 
-@export var data: CreatureData
+@export var data: CreatureData:
+	set(d):
+		data = d
+		if Engine.is_editor_hint() and d and d.texture:
+			sprite_2d.texture = d.texture
 @export var reward_spawn_position: Marker2D
 
 @onready var sprite_2d: Sprite2D = $Sprite2D as Sprite2D
@@ -12,7 +17,8 @@ func _ready() -> void:
 	if data and data.texture:
 		sprite_2d.texture = data.texture
 
-	CycleManager.period_started.connect(_on_cycle_manager_period_started)
+	if not Engine.is_editor_hint():
+		CycleManager.period_started.connect(_on_cycle_manager_period_started)
 
 
 func _on_area_entered(_area: Area2D) -> void:

@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="CreatureData" load_steps=7 format=3 uid="uid://bn5g6rrudx6bw"]
+
+[ext_resource type="Script" path="res://scenes/creature/creature_data.gd" id="1_60kes"]
+[ext_resource type="Script" path="res://scenes/creature/trade_data.gd" id="2_ce7fb"]
+[ext_resource type="Texture2D" uid="uid://c5tdy4fefs61t" path="res://assets/tiny_creatures.png" id="2_rxm6f"]
+[ext_resource type="Resource" uid="uid://c2kcl5h3meco4" path="res://scenes/item/items/coin.tres" id="4_f0108"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fmmfn"]
+atlas = ExtResource("2_rxm6f")
+region = Rect2(51, 272, 16, 16)
+
+[sub_resource type="Resource" id="Resource_t6h3o"]
+script = ExtResource("2_ce7fb")
+request = 4
+reward = ExtResource("4_f0108")
+
+[resource]
+script = ExtResource("1_60kes")
+texture = SubResource("AtlasTexture_fmmfn")
+active_period = 2
+trades = Array[ExtResource("2_ce7fb")]([SubResource("Resource_t6h3o")])

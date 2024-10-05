@@ -3,11 +3,13 @@ extends Node2D
 
 enum ITEM_TYPE {
 	NONE,
+	BEE,
 	COIN,
-	POTION,
-	SWORD,
+	FAITH,
 	HONEY,
 	MUSHROOM,
+	POTION,
+	SWORD,
 	ANY,
 }
 
