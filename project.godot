@@ -69,8 +69,9 @@ move_up={
 
 [layer_names]
 
-2d_physics/layer_1="creature"
-2d_physics/layer_2="item"
+2d_physics/layer_1="creatures"
+2d_physics/layer_2="items"
+2d_physics/layer_3="storage"
 
 [rendering]
 

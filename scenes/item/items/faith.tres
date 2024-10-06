@@ -1,13 +1,13 @@
 [gd_resource type="Resource" script_class="ItemData" load_steps=4 format=3 uid="uid://caipeinjry0r"]
 
 [ext_resource type="Script" path="res://scenes/item/item_data.gd" id="1_mlpbx"]
-[ext_resource type="Texture2D" uid="uid://c5tdy4fefs61t" path="res://assets/tiny_creatures.png" id="2_fd4p4"]
+[ext_resource type="Texture2D" uid="uid://camxb36ubcpny" path="res://assets/creatures_and_items.png" id="2_ers6y"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ad6gh"]
-atlas = ExtResource("2_fd4p4")
-region = Rect2(102, 51, 16, 16)
+[sub_resource type="AtlasTexture" id="AtlasTexture_pjjcb"]
+atlas = ExtResource("2_ers6y")
+region = Rect2(2, 24, 20, 20)
 
 [resource]
 script = ExtResource("1_mlpbx")
-texture = SubResource("AtlasTexture_ad6gh")
+texture = SubResource("AtlasTexture_pjjcb")
 type = 3

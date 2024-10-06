@@ -1,13 +1,13 @@
 [gd_resource type="Resource" script_class="ItemData" load_steps=4 format=3 uid="uid://c2kcl5h3meco4"]
 
 [ext_resource type="Script" path="res://scenes/item/item_data.gd" id="1_m3wpf"]
-[ext_resource type="Texture2D" uid="uid://ddc4l5sqiv5mq" path="res://assets/tiny_town.png" id="2_rpd4w"]
+[ext_resource type="Texture2D" uid="uid://camxb36ubcpny" path="res://assets/creatures_and_items.png" id="2_kvslj"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_esnlr"]
-atlas = ExtResource("2_rpd4w")
-region = Rect2(153, 119, 16, 16)
+[sub_resource type="AtlasTexture" id="AtlasTexture_01aax"]
+atlas = ExtResource("2_kvslj")
+region = Rect2(112, 24, 20, 20)
 
 [resource]
 script = ExtResource("1_m3wpf")
-texture = SubResource("AtlasTexture_esnlr")
+texture = SubResource("AtlasTexture_01aax")
 type = 2

@@ -7,6 +7,8 @@ extends Area2D
 	set(d):
 		data = d
 		if Engine.is_editor_hint() and d and d.texture:
+			if not is_node_ready():
+				await ready
 			sprite_2d.texture = d.texture
 @export var reward_spawn_position: Marker2D
 
@@ -14,10 +16,8 @@ extends Area2D
 
 
 func _ready() -> void:
-	if data and data.texture:
-		sprite_2d.texture = data.texture
-
 	if not Engine.is_editor_hint():
+		sprite_2d.texture = data.texture
 		CycleManager.period_started.connect(_on_cycle_manager_period_started)
 
 

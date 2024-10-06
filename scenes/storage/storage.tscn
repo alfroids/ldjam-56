@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://dd0xf1c2eqxxf"]
+
+[ext_resource type="Script" path="res://scenes/storage/storage.gd" id="1_q63v4"]
+
+[node name="Storage" type="Area2D"]
+collision_layer = 4
+collision_mask = 0
+script = ExtResource("1_q63v4")

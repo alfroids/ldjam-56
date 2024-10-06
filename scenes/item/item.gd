@@ -2,14 +2,20 @@ class_name Item
 extends Area2D
 
 
+signal removed_from_storage()
+
 var data: ItemData
 var type: ItemManager.ITEM_TYPE:
 	get:
-		return data.type if data else ItemManager.ITEM_TYPE.COIN
+		return data.type if data else ItemManager.ITEM_TYPE.NONE
 
 @onready var is_in_focus: bool = false
 @onready var is_grabbed: bool = false
-@onready var is_in_storage: bool = false
+@onready var is_in_storage: bool = false:
+	set(iis):
+		if is_in_storage and not iis:
+			removed_from_storage.emit()
+		is_in_storage = iis
 @onready var offset: Vector2 = Vector2.ZERO
 @onready var sprite_2d: Sprite2D = $Sprite2D as Sprite2D
 
@@ -27,6 +33,7 @@ func _process(_delta: float) -> void:
 	if is_in_focus:
 		if Input.is_action_just_pressed(&"grab"):
 			is_grabbed = true
+			is_in_storage = false
 			offset = get_global_mouse_position() - global_position
 
 		elif Input.is_action_just_released(&"grab"):
@@ -37,11 +44,14 @@ func _process(_delta: float) -> void:
 			for area in overlapping_areas:
 				if area is Creature:
 					var was_collected: bool = (area as Creature).collect(self)
-
 					if was_collected:
 						queue_free()
-
 					break
+
+				elif area is Storage:
+					var was_stored: bool = (area as Storage).store(self)
+					if was_stored:
+						is_in_storage = true
 
 	if is_grabbed:
 		global_position = get_global_mouse_position() - offset
