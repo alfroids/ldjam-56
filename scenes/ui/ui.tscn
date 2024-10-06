@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://b7lon3lteco0x"]
+[gd_scene load_steps=5 format=3 uid="uid://b7lon3lteco0x"]
 
 [ext_resource type="Script" path="res://scenes/ui/ui.gd" id="1_em8dl"]
 [ext_resource type="Texture2D" uid="uid://bg4jaq7fxrvuu" path="res://assets/faith_bar_under.png" id="1_o4nju"]
 [ext_resource type="Texture2D" uid="uid://dk6kq4htliqnp" path="res://assets/faith_bar_progress.png" id="2_ad30p"]
+[ext_resource type="PackedScene" uid="uid://dfrxet8rlm526" path="res://scenes/new_trade_bubble/new_trade_bubble.tscn" id="4_j53vm"]
 
 [node name="UI" type="Control"]
 layout_mode = 3
@@ -43,3 +44,15 @@ size_flags_vertical = 8
 max_value = 274.0
 texture_under = ExtResource("1_o4nju")
 texture_progress = ExtResource("2_ad30p")
+
+[node name="NewTradeBubblePosition" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="NewTradeBubble" parent="NewTradeBubblePosition" instance=ExtResource("4_j53vm")]

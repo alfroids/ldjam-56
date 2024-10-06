@@ -1,9 +1,8 @@
-[gd_scene load_steps=18 format=3 uid="uid://cdyuf34e6gxn2"]
+[gd_scene load_steps=17 format=3 uid="uid://cdyuf34e6gxn2"]
 
 [ext_resource type="Script" path="res://scenes/world/world.gd" id="1_imt2e"]
 [ext_resource type="Script" path="res://scenes/world/cameraman.gd" id="1_vmgys"]
 [ext_resource type="PackedScene" uid="uid://8paq0btdr4a" path="res://scenes/map/map.tscn" id="2_v43ui"]
-[ext_resource type="PackedScene" uid="uid://dfrxet8rlm526" path="res://scenes/new_trade_bubble/new_trade_bubble.tscn" id="3_h3wcd"]
 [ext_resource type="PackedScene" uid="uid://cffirh2waccm7" path="res://scenes/creature/creature.tscn" id="4_8rj3d"]
 [ext_resource type="Resource" uid="uid://8frcca4w8csi" path="res://scenes/creature/creatures/alchemist.tres" id="5_id8b2"]
 [ext_resource type="Resource" uid="uid://du1vinwfsx583" path="res://scenes/creature/creatures/blacksmith.tres" id="5_ratov"]
@@ -26,9 +25,6 @@ script = ExtResource("1_imt2e")
 [node name="HUD" type="CanvasLayer" parent="."]
 
 [node name="UI" parent="HUD" instance=ExtResource("15_1bv26")]
-
-[node name="NewTradeBubble" parent="HUD" instance=ExtResource("3_h3wcd")]
-position = Vector2(960, 540)
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 
