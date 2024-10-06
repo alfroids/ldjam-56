@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scenes/creature/creature_data.gd" id="1_cxkm1"]
 [ext_resource type="Script" path="res://scenes/creature/trade_data.gd" id="2_5d7c3"]
-[ext_resource type="Texture2D" uid="uid://camxb36ubcpny" path="res://assets/creatures_and_items.png" id="2_a07l1"]
+[ext_resource type="Texture2D" uid="uid://d140l2bv4vvky" path="res://assets/creatures_and_items.png" id="2_a07l1"]
 [ext_resource type="Resource" uid="uid://vj21k58cv2mq" path="res://scenes/item/items/potion.tres" id="4_eopfs"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6jhyq"]

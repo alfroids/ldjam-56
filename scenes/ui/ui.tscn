@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://b7lon3lteco0x"]
+[gd_scene load_steps=4 format=3 uid="uid://b7lon3lteco0x"]
 
-[ext_resource type="Texture2D" uid="uid://b228ql1aya4gp" path="res://assets/faith_bar_under.png" id="1_o4nju"]
-[ext_resource type="Texture2D" uid="uid://daodniosenr1v" path="res://assets/faith_bar_progress.png" id="2_ad30p"]
+[ext_resource type="Script" path="res://scenes/ui/ui.gd" id="1_em8dl"]
+[ext_resource type="Texture2D" uid="uid://bg4jaq7fxrvuu" path="res://assets/faith_bar_under.png" id="1_o4nju"]
+[ext_resource type="Texture2D" uid="uid://dk6kq4htliqnp" path="res://assets/faith_bar_progress.png" id="2_ad30p"]
 
 [node name="UI" type="Control"]
 layout_mode = 3
@@ -11,20 +12,9 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
+script = ExtResource("1_em8dl")
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/margin_left = 32
-theme_override_constants/margin_top = 32
-theme_override_constants/margin_right = 32
-theme_override_constants/margin_bottom = 32
-
-[node name="TextureProgressBar" type="TextureProgressBar" parent="."]
+[node name="FaithBar" type="TextureProgressBar" parent="."]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -41,5 +31,6 @@ scale = Vector2(3, 3)
 pivot_offset = Vector2(137, 20)
 size_flags_horizontal = 4
 size_flags_vertical = 8
+max_value = 274.0
 texture_under = ExtResource("1_o4nju")
 texture_progress = ExtResource("2_ad30p")

@@ -1,11 +1,11 @@
 [gd_resource type="Resource" script_class="CreatureData" load_steps=7 format=3 uid="uid://c3jo7mmrmj73e"]
 
 [ext_resource type="Script" path="res://scenes/creature/creature_data.gd" id="1_p21ut"]
-[ext_resource type="Texture2D" uid="uid://camxb36ubcpny" path="res://assets/creatures_and_items.png" id="2_gihdk"]
+[ext_resource type="Texture2D" uid="uid://d140l2bv4vvky" path="res://assets/creatures_and_items.png" id="2_gihdk"]
 [ext_resource type="Script" path="res://scenes/creature/trade_data.gd" id="2_mlcha"]
 [ext_resource type="Resource" uid="uid://caipeinjry0r" path="res://scenes/item/items/faith.tres" id="4_vn5pn"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_nl70k"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_816oa"]
 atlas = ExtResource("2_gihdk")
 region = Rect2(46, 2, 20, 20)
 
@@ -16,6 +16,6 @@ reward = ExtResource("4_vn5pn")
 
 [resource]
 script = ExtResource("1_p21ut")
-texture = SubResource("AtlasTexture_nl70k")
+texture = SubResource("AtlasTexture_816oa")
 active_period = 3
 trades = Array[ExtResource("2_mlcha")]([SubResource("Resource_efpf8")])

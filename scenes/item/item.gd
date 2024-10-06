@@ -51,9 +51,8 @@ func _process(_delta: float) -> void:
 			var overlapping_areas: Array[Area2D] = get_overlapping_areas()
 			for area in overlapping_areas:
 				if area is Creature:
-					var was_collected: bool = (area as Creature).collect(self)
-					if was_collected:
-						queue_free()
+					(area as Creature).collect(self)
+					queue_free()
 					break
 
 				elif area is Storage:
