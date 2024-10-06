@@ -3,6 +3,8 @@ class_name Creature
 extends Area2D
 
 
+const NONE: ItemData = preload("res://scenes/item/items/none.tres")
+
 @export var data: CreatureData:
 	set(d):
 		data = d
@@ -97,10 +99,11 @@ func collect(item: Item) -> void:
 		if trade.request == item.type or trade.request == ItemManager.ITEM_TYPE.ANY:
 			spawn_reward(trade.reward)
 			faith += 1
-			SignalBus.traded_item.emit()
+			SignalBus.traded_item.emit(data, item.data, trade.reward)
 			return
 
 	faith -= 1
+	SignalBus.traded_item.emit(data, item.data, NONE)
 
 
 func spawn_reward(reward_data: ItemData) -> void:
