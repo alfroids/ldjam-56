@@ -52,11 +52,23 @@ func _ready() -> void:
 
 
 func _on_area_entered(_area: Area2D) -> void:
-	sprite_2d.scale = 4 * Vector2.ONE
+	var tween: Tween = create_tween()
+	tween.tween_property(
+		sprite_2d,
+		^"scale",
+		4 * Vector2.ONE,
+		0.2
+	).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
 
 
 func _on_area_exited(_area: Area2D) -> void:
-	sprite_2d.scale = 3 * Vector2.ONE
+	var tween: Tween = create_tween()
+	tween.tween_property(
+		sprite_2d,
+		^"scale",
+		3 * Vector2.ONE,
+		0.2
+	).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
 
 
 func _on_cycle_manager_period_started(period: CycleManager.PERIOD) -> void:

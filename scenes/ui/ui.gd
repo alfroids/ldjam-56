@@ -1,7 +1,7 @@
 extends Control
 
 
-@onready var faith_bar: TextureProgressBar = $FaithBar as TextureProgressBar
+@onready var faith_bar: TextureProgressBar = %FaithBar as TextureProgressBar
 
 
 func _ready() -> void:

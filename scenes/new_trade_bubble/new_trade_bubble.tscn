@@ -1,0 +1,41 @@
+[gd_scene load_steps=7 format=3 uid="uid://dfrxet8rlm526"]
+
+[ext_resource type="Texture2D" uid="uid://cxt0bupwaliv4" path="res://assets/ui.png" id="1_yt0ra"]
+[ext_resource type="Texture2D" uid="uid://d140l2bv4vvky" path="res://assets/creatures_and_items.png" id="2_4s42i"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kkd4n"]
+atlas = ExtResource("1_yt0ra")
+region = Rect2(70, 70, 52, 22)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ukwpk"]
+atlas = ExtResource("2_4s42i")
+region = Rect2(112, 24, 20, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0ae3h"]
+atlas = ExtResource("1_yt0ra")
+region = Rect2(96, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_omv5d"]
+atlas = ExtResource("2_4s42i")
+region = Rect2(200, 24, 20, 20)
+
+[node name="NewTradeBubble" type="Node2D"]
+
+[node name="Bubble" type="Sprite2D" parent="."]
+scale = Vector2(3, 3)
+texture = SubResource("AtlasTexture_kkd4n")
+offset = Vector2(0, 1)
+
+[node name="Item" type="Sprite2D" parent="."]
+position = Vector2(-48, 0)
+scale = Vector2(3, 3)
+texture = SubResource("AtlasTexture_ukwpk")
+
+[node name="Arrow" type="Sprite2D" parent="."]
+scale = Vector2(3, 3)
+texture = SubResource("AtlasTexture_0ae3h")
+
+[node name="Reward" type="Sprite2D" parent="."]
+position = Vector2(48, 0)
+scale = Vector2(3, 3)
+texture = SubResource("AtlasTexture_omv5d")
