@@ -1,7 +1,12 @@
-[gd_scene load_steps=7 format=3 uid="uid://dfrxet8rlm526"]
+[gd_scene load_steps=12 format=3 uid="uid://dfrxet8rlm526"]
 
+[ext_resource type="Script" path="res://scenes/new_trade_bubble/new_trade_bubble.gd" id="1_vreks"]
 [ext_resource type="Texture2D" uid="uid://cxt0bupwaliv4" path="res://assets/ui.png" id="1_yt0ra"]
 [ext_resource type="Texture2D" uid="uid://d140l2bv4vvky" path="res://assets/creatures_and_items.png" id="2_4s42i"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6qtrv"]
+atlas = ExtResource("2_4s42i")
+region = Rect2(24, 2, 20, 20)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kkd4n"]
 atlas = ExtResource("1_yt0ra")
@@ -19,23 +24,108 @@ region = Rect2(96, 0, 16, 16)
 atlas = ExtResource("2_4s42i")
 region = Rect2(200, 24, 20, 20)
 
+[sub_resource type="Animation" id="Animation_g2syo"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 168)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Creature:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -24)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Bubble:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_wdm8p"]
+resource_name = "popup"
+length = 4.2
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Creature:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 4.1, 4.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, -24), Vector2(0, -192), Vector2(0, -192), Vector2(0, -24)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Bubble:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.2, 4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7dlnk"]
+_data = {
+"RESET": SubResource("Animation_g2syo"),
+"popup": SubResource("Animation_wdm8p")
+}
+
 [node name="NewTradeBubble" type="Node2D"]
+position = Vector2(0, 168)
+script = ExtResource("1_vreks")
+
+[node name="Creature" type="Sprite2D" parent="."]
+position = Vector2(0, -24)
+scale = Vector2(3, 3)
+texture = SubResource("AtlasTexture_6qtrv")
 
 [node name="Bubble" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(0, -264)
 scale = Vector2(3, 3)
 texture = SubResource("AtlasTexture_kkd4n")
 offset = Vector2(0, 1)
 
-[node name="Item" type="Sprite2D" parent="."]
-position = Vector2(-48, 0)
-scale = Vector2(3, 3)
+[node name="Item" type="Sprite2D" parent="Bubble"]
+position = Vector2(-16, 0)
 texture = SubResource("AtlasTexture_ukwpk")
 
-[node name="Arrow" type="Sprite2D" parent="."]
-scale = Vector2(3, 3)
+[node name="Arrow" type="Sprite2D" parent="Bubble"]
 texture = SubResource("AtlasTexture_0ae3h")
 
-[node name="Reward" type="Sprite2D" parent="."]
-position = Vector2(48, 0)
-scale = Vector2(3, 3)
+[node name="Reward" type="Sprite2D" parent="Bubble"]
+position = Vector2(16, 0)
 texture = SubResource("AtlasTexture_omv5d")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_7dlnk")
+}

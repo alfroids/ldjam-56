@@ -3,8 +3,6 @@ class_name Creature
 extends Area2D
 
 
-signal collected_item()
-
 @export var data: CreatureData:
 	set(d):
 		data = d
@@ -99,10 +97,10 @@ func collect(item: Item) -> void:
 		if trade.request == item.type or trade.request == ItemManager.ITEM_TYPE.ANY:
 			spawn_reward(trade.reward)
 			faith += 1
+			SignalBus.traded_item.emit()
 			return
 
 	faith -= 1
-	collected_item.emit()
 
 
 func spawn_reward(reward_data: ItemData) -> void:
