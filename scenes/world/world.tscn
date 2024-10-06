@@ -34,7 +34,7 @@ position_smoothing_speed = 8.0
 [node name="Map" parent="." instance=ExtResource("2_v43ui")]
 
 [node name="Alchemist" parent="." node_paths=PackedStringArray("reward_spawn_position") instance=ExtResource("4_8rj3d")]
-position = Vector2(-304, 0)
+position = Vector2(-312, 0)
 data = ExtResource("5_id8b2")
 reward_spawn_position = NodePath("Marker2D")
 
@@ -58,7 +58,7 @@ reward_spawn_position = NodePath("Marker2D")
 position = Vector2(-64, 16)
 
 [node name="Blacksmith" parent="." node_paths=PackedStringArray("reward_spawn_position") instance=ExtResource("4_8rj3d")]
-position = Vector2(210, 0)
+position = Vector2(216, 0)
 data = ExtResource("5_ratov")
 reward_spawn_position = NodePath("Marker2D")
 
@@ -100,9 +100,9 @@ slots = [NodePath("Slot1"), NodePath("Slot2")]
 shape = SubResource("RectangleShape2D_u1qhq")
 
 [node name="Slot1" type="Marker2D" parent="Storage"]
-position = Vector2(-32, 16)
+position = Vector2(-24, 24)
 gizmo_extents = 24.0
 
 [node name="Slot2" type="Marker2D" parent="Storage"]
-position = Vector2(32, 16)
+position = Vector2(24, 24)
 gizmo_extents = 24.0

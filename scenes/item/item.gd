@@ -10,7 +10,15 @@ var type: ItemManager.ITEM_TYPE:
 		return data.type if data else ItemManager.ITEM_TYPE.NONE
 
 @onready var is_in_focus: bool = false
-@onready var is_grabbed: bool = false
+@onready var is_grabbed: bool = false:
+	set(ig):
+		if not is_grabbed and ig:
+			SignalBus.player_grabbed_item.emit(type)
+			sprite_2d.material.set_shader_parameter(&"outline_color", Color("fee761"))
+		elif is_grabbed and not ig:
+			SignalBus.player_released_item.emit(type)
+			sprite_2d.material.set_shader_parameter(&"outline_color", Color("ffffff"))
+		is_grabbed = ig
 @onready var is_in_storage: bool = false:
 	set(iis):
 		if is_in_storage and not iis:

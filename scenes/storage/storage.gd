@@ -16,7 +16,13 @@ func store(item: Item) -> bool:
 	for slot in slots:
 		if not items[slot]:
 			items[slot] = item
-			item.global_position = slot.global_position
+			var tween: Tween = create_tween()
+			tween.tween_property(
+				item,
+				^"global_position",
+				slot.global_position,
+				item.global_position.distance_to(slot.global_position) / 800
+			).set_ease(Tween.EASE_IN)
 			item.removed_from_storage.connect(
 				func():
 					items[slot] = null

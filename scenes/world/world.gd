@@ -10,8 +10,11 @@ func _ready() -> void:
 
 
 func _on_cycle_manager_period_started(period: CycleManager.PERIOD) -> void:
-	if period == CycleManager.PERIOD.DAY:
-		canvas_modulate.color = Color.WHITE
-
-	elif period == CycleManager.PERIOD.NIGHT:
-		canvas_modulate.color = Color("#262b44")
+	var target_color: Color = Color("#124e89") if period == CycleManager.PERIOD.NIGHT else Color.WHITE
+	var tween: Tween = create_tween()
+	tween.tween_property(
+		canvas_modulate,
+		^"color",
+		target_color,
+		0.5
+	).set_ease(Tween.EASE_IN_OUT)
