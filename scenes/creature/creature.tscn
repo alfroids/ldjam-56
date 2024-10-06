@@ -1,11 +1,13 @@
 [gd_scene load_steps=12 format=3 uid="uid://cffirh2waccm7"]
 
 [ext_resource type="Script" path="res://scenes/creature/creature.gd" id="1_qu68n"]
-[ext_resource type="Texture2D" uid="uid://yqlgucfhmvl1" path="res://assets/tiny_dungeon.png" id="1_t4vku"]
 [ext_resource type="Texture2D" uid="uid://dviycq5uggbar" path="res://assets/ui.png" id="3_un53v"]
 
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_48qdq"]
+load_path = "res://.godot/imported/tiny_dungeon.png-22f93b5f495fe766a0874c67d9f01d6d.ctex"
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_f8dp0"]
-atlas = ExtResource("1_t4vku")
+atlas = SubResource("CompressedTexture2D_48qdq")
 region = Rect2(17, 119, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0swar"]

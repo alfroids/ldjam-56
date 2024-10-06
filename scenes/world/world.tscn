@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://cdyuf34e6gxn2"]
+[gd_scene load_steps=17 format=3 uid="uid://cdyuf34e6gxn2"]
 
 [ext_resource type="Script" path="res://scenes/world/world.gd" id="1_imt2e"]
 [ext_resource type="Script" path="res://scenes/world/cameraman.gd" id="1_vmgys"]
@@ -14,6 +14,7 @@
 [ext_resource type="Resource" uid="uid://vshaj8btn2mc" path="res://scenes/item/items/bee.tres" id="12_2jal3"]
 [ext_resource type="Resource" uid="uid://dsvvplbam0sta" path="res://scenes/item/items/mushroom.tres" id="13_qth1j"]
 [ext_resource type="PackedScene" uid="uid://dd0xf1c2eqxxf" path="res://scenes/storage/storage.tscn" id="14_nedt1"]
+[ext_resource type="PackedScene" uid="uid://b7lon3lteco0x" path="res://scenes/ui/ui.tscn" id="15_1bv26"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u1qhq"]
 size = Vector2(128, 128)
@@ -106,3 +107,7 @@ gizmo_extents = 24.0
 [node name="Slot2" type="Marker2D" parent="Storage"]
 position = Vector2(24, 24)
 gizmo_extents = 24.0
+
+[node name="HUD" type="CanvasLayer" parent="."]
+
+[node name="UI" parent="HUD" instance=ExtResource("15_1bv26")]

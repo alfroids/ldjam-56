@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scenes/item/item.gd" id="1_h5cql"]
 [ext_resource type="Shader" path="res://assets/shaders/pixel_outline.gdshader" id="2_5asij"]
-[ext_resource type="Texture2D" uid="uid://ddc4l5sqiv5mq" path="res://assets/tiny_town.png" id="3_i1oke"]
+[ext_resource type="Texture2D" uid="uid://camxb36ubcpny" path="res://assets/creatures_and_items.png" id="3_nobag"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_y1drj"]
 resource_local_to_scene = true
@@ -10,9 +10,9 @@ shader = ExtResource("2_5asij")
 shader_parameter/outline_width = 1.0
 shader_parameter/outline_color = Color(1, 1, 1, 1)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_fbfhu"]
-atlas = ExtResource("3_i1oke")
-region = Rect2(153, 119, 16, 16)
+[sub_resource type="AtlasTexture" id="AtlasTexture_tjp73"]
+atlas = ExtResource("3_nobag")
+region = Rect2(112, 24, 20, 20)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_6q1at"]
 radius = 19.0
@@ -26,7 +26,7 @@ script = ExtResource("1_h5cql")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 material = SubResource("ShaderMaterial_y1drj")
 scale = Vector2(3, 3)
-texture = SubResource("AtlasTexture_fbfhu")
+texture = SubResource("AtlasTexture_tjp73")
 region_rect = Rect2(153, 119, 16, 16)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
