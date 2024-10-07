@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=4 format=3 uid="uid://csfq3bnq1s76s"]
+
+[ext_resource type="Script" path="res://scenes/item/item_data.gd" id="1_bp0pp"]
+[ext_resource type="Texture2D" uid="uid://d140l2bv4vvky" path="res://assets/creatures_and_items.png" id="2_vun23"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s3eln"]
+atlas = ExtResource("2_vun23")
+region = Rect2(244, 24, 20, 20)
+
+[resource]
+script = ExtResource("1_bp0pp")
+texture = SubResource("AtlasTexture_s3eln")
+type = 11

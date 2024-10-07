@@ -10,4 +10,4 @@ region = Rect2(112, 24, 20, 20)
 [resource]
 script = ExtResource("1_m3wpf")
 texture = SubResource("AtlasTexture_01aax")
-type = 2
+type = 5

@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="CreatureData" load_steps=5 format=3 uid="uid://cip7kawpxx65a"]
+
+[ext_resource type="Script" path="res://scenes/creature/creature_data.gd" id="1_yoqxf"]
+[ext_resource type="Script" path="res://scenes/creature/trade_data.gd" id="2_g8dxn"]
+[ext_resource type="Texture2D" uid="uid://d140l2bv4vvky" path="res://assets/creatures_and_items.png" id="2_p3anx"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ght8v"]
+atlas = ExtResource("2_p3anx")
+region = Rect2(354, 2, 20, 20)
+
+[resource]
+script = ExtResource("1_yoqxf")
+texture = SubResource("AtlasTexture_ght8v")
+active_period = 1
+trades = Array[ExtResource("2_g8dxn")]([])

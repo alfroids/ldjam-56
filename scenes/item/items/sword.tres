@@ -10,4 +10,4 @@ region = Rect2(222, 24, 20, 20)
 [resource]
 script = ExtResource("1_3d1aq")
 texture = SubResource("AtlasTexture_tifkt")
-type = 7
+type = 27

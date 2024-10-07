@@ -10,4 +10,4 @@ region = Rect2(156, 24, 20, 20)
 [resource]
 script = ExtResource("1_687g8")
 texture = SubResource("AtlasTexture_rms6d")
-type = 5
+type = 19
