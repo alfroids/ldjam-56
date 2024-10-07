@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://b7lon3lteco0x"]
+[gd_scene load_steps=10 format=3 uid="uid://b7lon3lteco0x"]
 
 [ext_resource type="Script" path="res://scenes/ui/ui.gd" id="1_em8dl"]
 [ext_resource type="Texture2D" uid="uid://bg4jaq7fxrvuu" path="res://assets/faith_bar_under.png" id="1_o4nju"]
@@ -6,6 +6,44 @@
 [ext_resource type="PackedScene" uid="uid://dfrxet8rlm526" path="res://scenes/ui/new_trade_bubble/new_trade_bubble.tscn" id="4_j53vm"]
 [ext_resource type="PackedScene" uid="uid://devogahwjpp4b" path="res://scenes/ui/trade_counter/trade_counter.tscn" id="4_ppbdp"]
 [ext_resource type="FontFile" uid="uid://b045jljbteq85" path="res://assets/fonts/m6x11plus.ttf" id="5_thqmk"]
+
+[sub_resource type="Animation" id="Animation_shmuo"]
+resource_name = "typewriter"
+length = 45.0
+step = 1.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MarginContainer/RichTextLabel:visible_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 45),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+
+[sub_resource type="Animation" id="Animation_gy13i"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MarginContainer/RichTextLabel:visible_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_y0gx5"]
+_data = {
+"RESET": SubResource("Animation_gy13i"),
+"typewriter": SubResource("Animation_shmuo")
+}
 
 [node name="UI" type="Control"]
 process_mode = 3
@@ -105,19 +143,24 @@ theme_override_constants/margin_top = 32
 theme_override_constants/margin_right = 32
 theme_override_constants/margin_bottom = 32
 
-[node name="RichTextLabel" type="Label" parent="MarginContainer/Intro/MarginContainer"]
+[node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer/Intro/MarginContainer"]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
-theme_override_fonts/font = ExtResource("5_thqmk")
-theme_override_font_sizes/font_size = 54
-text = "Oh! H-Hello, Mr. God! S-Sorry, I didn’t mean to startle you! I-It's just, well... I heard you wanted to know more about how things work down here in the village. You see, we’ve got to keep these creatures happy, and most importantly, we need to make sure they keep their faith strong in us -- I mean, um, well, you!
-I have a list of the things each creature likes... but, oh! You don’t want that? Right, of course! You can just pick up items and offer them directly to any creature. If they like what you give them, their faith will go up, and they’ll even give you an offering in return! But... if they don’t like it, their faith will drop. And, um, we don’t want their faith to reach zero. B-Bad things happen when that happens!
+theme_override_fonts/normal_font = ExtResource("5_thqmk")
+theme_override_font_sizes/normal_font_size = 54
+bbcode_enabled = true
+text = "[center]Oh! H-Hello, [wave amp=50.0 freq=5.0 connected=1]Mr. God[/wave]! S-Sorry, I didn’t mean to startle you! I-It's just, well... I heard you wanted to know more about how things work down here in the village. You see, we’ve got to keep these creatures happy, and most importantly, we need to make sure they keep their faith strong in us -- I mean, um, well, you!
+I have a list of the things each creature likes... but, oh! You don’t want that? Right, of course! Y-You can just pick up items and offer them directly to any creature. If they like what you give them, their faith will go up, and they’ll even give you an offering in return! But... if they don’t like it, their faith will drop. And, um, we don’t want their faith to reach zero. B-Bad things happen when that happens!
 Oh! And one last thing, sir! If you don't give a creature a gift by the end of the day, they’ll lose faith too. S-So, let’s see if you can figure out what they like... I mean, I know you can, sir!
 
-Press [space] to start."
-horizontal_alignment = 1
-vertical_alignment = 1
-autowrap_mode = 3
+Press [space] to start.[/center]"
+visible_characters = 0
+visible_ratio = 0.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="MarginContainer/Intro"]
+libraries = {
+"": SubResource("AnimationLibrary_y0gx5")
+}
 
 [node name="Tip" type="Label" parent="MarginContainer"]
 visible = false

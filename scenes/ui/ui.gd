@@ -5,6 +5,7 @@ extends Control
 @onready var end_game_panel: Panel = $MarginContainer/EndGamePanel as Panel
 @onready var label: Label = $MarginContainer/EndGamePanel/VBoxContainer/Label as Label
 @onready var intro: Panel = $MarginContainer/Intro as Panel
+@onready var animation_player: AnimationPlayer = $MarginContainer/Intro/AnimationPlayer as AnimationPlayer
 @onready var tip: Label = $MarginContainer/Tip as Label
 @onready var timer: Timer = $MarginContainer/Tip/Timer as Timer
 @onready var game_started: bool = false
@@ -16,16 +17,22 @@ func _ready() -> void:
 	SignalBus.game_over.connect(_on_game_over)
 	SignalBus.victory.connect(_on_victory)
 
+	animation_player.play(&"typewriter")
+
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed(&"skip"):
-		if not game_started:
-			intro.visible = false
-			game_started = true
-			get_tree().paused = false
+		if animation_player.is_playing():
+			animation_player.speed_scale = 8.0
 
-		tip.visible = false
-		timer.start()
+		else:
+			if not game_started:
+				intro.visible = false
+				game_started = true
+				get_tree().paused = false
+
+			tip.visible = false
+			timer.start()
 
 
 func _on_faith_changed() -> void:
