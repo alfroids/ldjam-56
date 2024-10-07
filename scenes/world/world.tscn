@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://cdyuf34e6gxn2"]
+[gd_scene load_steps=21 format=3 uid="uid://cdyuf34e6gxn2"]
 
 [ext_resource type="Script" path="res://scenes/world/world.gd" id="1_imt2e"]
 [ext_resource type="Script" path="res://scenes/world/cameraman.gd" id="1_vmgys"]
@@ -15,6 +15,10 @@
 [ext_resource type="Resource" uid="uid://dsvvplbam0sta" path="res://scenes/item/items/mushroom.tres" id="13_qth1j"]
 [ext_resource type="PackedScene" uid="uid://dd0xf1c2eqxxf" path="res://scenes/storage/storage.tscn" id="14_nedt1"]
 [ext_resource type="PackedScene" uid="uid://b7lon3lteco0x" path="res://scenes/ui/ui.tscn" id="15_1bv26"]
+[ext_resource type="Resource" uid="uid://dcnqgqdfdcvkw" path="res://scenes/creature/creatures/golem.tres" id="16_ervpy"]
+[ext_resource type="Resource" uid="uid://8duf10peye2x" path="res://scenes/creature/creatures/villager.tres" id="17_1pp64"]
+[ext_resource type="Resource" uid="uid://qkw7xsa30b40" path="res://scenes/creature/creatures/slime.tres" id="18_euh38"]
+[ext_resource type="Resource" uid="uid://dfhjlyarbep7r" path="res://scenes/creature/creatures/monster.tres" id="19_prhg8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u1qhq"]
 size = Vector2(128, 128)
@@ -47,7 +51,7 @@ reward_spawn_position = NodePath("Marker2D")
 position = Vector2(80, 0)
 
 [node name="Bear" parent="." node_paths=PackedStringArray("reward_spawn_position") instance=ExtResource("4_8rj3d")]
-position = Vector2(-144, 0)
+position = Vector2(540, 361)
 data = ExtResource("6_irmsc")
 reward_spawn_position = NodePath("Marker2D")
 
@@ -55,7 +59,7 @@ reward_spawn_position = NodePath("Marker2D")
 position = Vector2(48, 32)
 
 [node name="Beehive" parent="." node_paths=PackedStringArray("reward_spawn_position") instance=ExtResource("4_8rj3d")]
-position = Vector2(144, -120)
+position = Vector2(343, 221)
 data = ExtResource("7_4nfwt")
 reward_spawn_position = NodePath("Marker2D")
 
@@ -63,7 +67,7 @@ reward_spawn_position = NodePath("Marker2D")
 position = Vector2(-64, 16)
 
 [node name="Blacksmith" parent="." node_paths=PackedStringArray("reward_spawn_position") instance=ExtResource("4_8rj3d")]
-position = Vector2(144, 0)
+position = Vector2(-186, 257)
 data = ExtResource("5_ratov")
 reward_spawn_position = NodePath("Marker2D")
 
@@ -79,7 +83,7 @@ reward_spawn_position = NodePath("Marker2D")
 position = Vector2(-96, 16)
 
 [node name="Preacher" parent="." node_paths=PackedStringArray("reward_spawn_position") instance=ExtResource("4_8rj3d")]
-position = Vector2(-144, 120)
+position = Vector2(94, -161)
 data = ExtResource("10_efwnc")
 reward_spawn_position = NodePath("Marker2D")
 
@@ -102,6 +106,7 @@ position = Vector2(-528, 384)
 slots = [NodePath("Slot1"), NodePath("Slot2")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Storage"]
+position = Vector2(1, 0)
 shape = SubResource("RectangleShape2D_u1qhq")
 
 [node name="Slot1" type="Marker2D" parent="Storage"]
@@ -111,3 +116,19 @@ gizmo_extents = 24.0
 [node name="Slot2" type="Marker2D" parent="Storage"]
 position = Vector2(24, 24)
 gizmo_extents = 24.0
+
+[node name="Golem" parent="." instance=ExtResource("4_8rj3d")]
+position = Vector2(-715, 126)
+data = ExtResource("16_ervpy")
+
+[node name="Villager" parent="." instance=ExtResource("4_8rj3d")]
+position = Vector2(602, 11)
+data = ExtResource("17_1pp64")
+
+[node name="Slime" parent="." instance=ExtResource("4_8rj3d")]
+position = Vector2(82, 119)
+data = ExtResource("18_euh38")
+
+[node name="Monster" parent="." instance=ExtResource("4_8rj3d")]
+position = Vector2(-287, -375)
+data = ExtResource("19_prhg8")
