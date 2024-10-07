@@ -1,15 +1,21 @@
-[gd_resource type="Resource" script_class="CreatureData" load_steps=5 format=3 uid="uid://cip7kawpxx65a"]
+[gd_resource type="Resource" script_class="CreatureData" load_steps=7 format=3 uid="uid://cip7kawpxx65a"]
 
 [ext_resource type="Script" path="res://scenes/creature/creature_data.gd" id="1_yoqxf"]
 [ext_resource type="Script" path="res://scenes/creature/trade_data.gd" id="2_g8dxn"]
 [ext_resource type="Texture2D" uid="uid://d140l2bv4vvky" path="res://assets/creatures_and_items.png" id="2_p3anx"]
+[ext_resource type="Resource" uid="uid://chu5wck2fisbh" path="res://scenes/item/items/obsidian_dust.tres" id="4_rbxr4"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ght8v"]
 atlas = ExtResource("2_p3anx")
 region = Rect2(354, 2, 20, 20)
 
+[sub_resource type="Resource" id="Resource_u3xbw"]
+script = ExtResource("2_g8dxn")
+request = 8
+reward = ExtResource("4_rbxr4")
+
 [resource]
 script = ExtResource("1_yoqxf")
 texture = SubResource("AtlasTexture_ght8v")
-active_period = 1
-trades = Array[ExtResource("2_g8dxn")]([])
+active_period = 2
+trades = Array[ExtResource("2_g8dxn")]([SubResource("Resource_u3xbw")])

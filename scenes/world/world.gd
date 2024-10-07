@@ -6,7 +6,8 @@ extends Node2D
 
 func _ready() -> void:
 	CycleManager.period_started.connect(_on_cycle_manager_period_started)
-	CycleManager.reset_cycles()
+	SignalBus.game_started.connect(_on_game_started)
+	get_tree().paused = true
 
 
 func _on_cycle_manager_period_started(period: CycleManager.PERIOD) -> void:
@@ -18,3 +19,7 @@ func _on_cycle_manager_period_started(period: CycleManager.PERIOD) -> void:
 		target_color,
 		0.5
 	).set_ease(Tween.EASE_IN_OUT)
+
+
+func _on_game_started() -> void:
+	CycleManager.reset_cycles()

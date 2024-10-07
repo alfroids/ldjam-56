@@ -29,3 +29,4 @@ func _on_traded_item(creature_data: CreatureData, item_data: ItemData, reward_da
 		item.texture = item_data.texture
 		reward.texture = reward_data.texture
 		animation_player.play(&"popup")
+		SignalBus.new_trade_discovered.emit()

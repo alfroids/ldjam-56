@@ -1,11 +1,14 @@
-[gd_scene load_steps=5 format=3 uid="uid://b7lon3lteco0x"]
+[gd_scene load_steps=7 format=3 uid="uid://b7lon3lteco0x"]
 
 [ext_resource type="Script" path="res://scenes/ui/ui.gd" id="1_em8dl"]
 [ext_resource type="Texture2D" uid="uid://bg4jaq7fxrvuu" path="res://assets/faith_bar_under.png" id="1_o4nju"]
 [ext_resource type="Texture2D" uid="uid://dk6kq4htliqnp" path="res://assets/faith_bar_progress.png" id="2_ad30p"]
-[ext_resource type="PackedScene" uid="uid://dfrxet8rlm526" path="res://scenes/new_trade_bubble/new_trade_bubble.tscn" id="4_j53vm"]
+[ext_resource type="PackedScene" uid="uid://dfrxet8rlm526" path="res://scenes/ui/new_trade_bubble/new_trade_bubble.tscn" id="4_j53vm"]
+[ext_resource type="PackedScene" uid="uid://devogahwjpp4b" path="res://scenes/ui/trade_counter/trade_counter.tscn" id="4_ppbdp"]
+[ext_resource type="FontFile" uid="uid://b045jljbteq85" path="res://assets/fonts/m6x11plus.ttf" id="5_thqmk"]
 
 [node name="UI" type="Control"]
+process_mode = 3
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -45,6 +48,90 @@ max_value = 274.0
 texture_under = ExtResource("1_o4nju")
 texture_progress = ExtResource("2_ad30p")
 
+[node name="TradeCounterPosition" type="Control" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+
+[node name="TradeCounter" parent="MarginContainer/TradeCounterPosition" instance=ExtResource("4_ppbdp")]
+position = Vector2(96, -56)
+
+[node name="EndGamePanel" type="Panel" parent="MarginContainer"]
+visible = false
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/EndGamePanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 128
+
+[node name="Label" type="Label" parent="MarginContainer/EndGamePanel/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_thqmk")
+theme_override_font_sizes/font_size = 108
+text = "game over..."
+
+[node name="Button" type="Button" parent="MarginContainer/EndGamePanel/VBoxContainer"]
+custom_minimum_size = Vector2(288, 96)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_fonts/font = ExtResource("5_thqmk")
+theme_override_font_sizes/font_size = 72
+text = "quit game"
+
+[node name="Intro" type="Panel" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/Intro"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 32
+
+[node name="RichTextLabel" type="Label" parent="MarginContainer/Intro/MarginContainer"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_thqmk")
+theme_override_font_sizes/font_size = 54
+text = "Oh! H-Hello, Mr. God! S-Sorry, I didn’t mean to startle you! I-It's just, well... I heard you wanted to know more about how things work down here in the village. You see, we’ve got to keep these creatures happy, and most importantly, we need to make sure they keep their faith strong in us -- I mean, um, well, you!
+I have a list of the things each creature likes... but, oh! You don’t want that? Right, of course! You can just pick up items and offer them directly to any creature. If they like what you give them, their faith will go up, and they’ll even give you an offering in return! But... if they don’t like it, their faith will drop. And, um, we don’t want their faith to reach zero. B-Bad things happen when that happens!
+Oh! And one last thing, sir! If you don't give a creature a gift by the end of the day, they’ll lose faith too. S-So, let’s see if you can figure out what they like... I mean, I know you can, sir!
+
+Press [space] to start."
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Tip" type="Label" parent="MarginContainer"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+theme_override_fonts/font = ExtResource("5_thqmk")
+theme_override_font_sizes/font_size = 54
+text = "Press [space] to advance time."
+
+[node name="Timer" type="Timer" parent="MarginContainer/Tip"]
+wait_time = 15.0
+one_shot = true
+
 [node name="NewTradeBubblePosition" type="Control" parent="."]
 layout_mode = 1
 anchors_preset = 7
@@ -56,3 +143,6 @@ grow_horizontal = 2
 grow_vertical = 0
 
 [node name="NewTradeBubble" parent="NewTradeBubblePosition" instance=ExtResource("4_j53vm")]
+
+[connection signal="pressed" from="MarginContainer/EndGamePanel/VBoxContainer/Button" to="." method="_on_button_pressed"]
+[connection signal="timeout" from="MarginContainer/Tip/Timer" to="." method="_on_timer_timeout"]

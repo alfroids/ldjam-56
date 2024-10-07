@@ -1,15 +1,21 @@
-[gd_resource type="Resource" script_class="CreatureData" load_steps=5 format=3 uid="uid://c5kb2ym3fbe07"]
+[gd_resource type="Resource" script_class="CreatureData" load_steps=7 format=3 uid="uid://c5kb2ym3fbe07"]
 
 [ext_resource type="Script" path="res://scenes/creature/creature_data.gd" id="1_u0qpt"]
 [ext_resource type="Texture2D" uid="uid://d140l2bv4vvky" path="res://assets/creatures_and_items.png" id="2_8nn6g"]
 [ext_resource type="Script" path="res://scenes/creature/trade_data.gd" id="2_f0rrt"]
+[ext_resource type="Resource" uid="uid://csfq3bnq1s76s" path="res://scenes/item/items/gold_dust.tres" id="4_iu2oo"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_66m8t"]
 atlas = ExtResource("2_8nn6g")
 region = Rect2(552, 2, 20, 20)
 
+[sub_resource type="Resource" id="Resource_gcdup"]
+script = ExtResource("2_f0rrt")
+request = 5
+reward = ExtResource("4_iu2oo")
+
 [resource]
 script = ExtResource("1_u0qpt")
 texture = SubResource("AtlasTexture_66m8t")
-active_period = 1
-trades = Array[ExtResource("2_f0rrt")]([])
+active_period = 2
+trades = Array[ExtResource("2_f0rrt")]([SubResource("Resource_gcdup")])

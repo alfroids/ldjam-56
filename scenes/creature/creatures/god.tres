@@ -11,5 +11,5 @@ region = Rect2(442, 2, 20, 20)
 [resource]
 script = ExtResource("1_euixt")
 texture = SubResource("AtlasTexture_5wg1y")
-active_period = 1
+active_period = 3
 trades = Array[ExtResource("2_y815n")]([])

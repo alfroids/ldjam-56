@@ -9,13 +9,13 @@
 atlas = ExtResource("2_wkbu2")
 region = Rect2(2, 2, 20, 20)
 
-[sub_resource type="Resource" id="Resource_gy2hc"]
+[sub_resource type="Resource" id="Resource_dmjat"]
 script = ExtResource("3_fa442")
-request = 2
+request = 5
 reward = ExtResource("4_fqsgd")
 
 [resource]
 script = ExtResource("1_dxo5o")
 texture = SubResource("AtlasTexture_jtkhl")
 active_period = 1
-trades = Array[ExtResource("3_fa442")]([SubResource("Resource_gy2hc")])
+trades = Array[ExtResource("3_fa442")]([SubResource("Resource_dmjat")])

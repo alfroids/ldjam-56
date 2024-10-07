@@ -37,6 +37,7 @@ var faith: int:
 @onready var sprite_2d: Sprite2D = $Sprite2D as Sprite2D
 @onready var animation_player: AnimationPlayer = $AnimationPlayer as AnimationPlayer
 @onready var faith_bar: TextureProgressBar = $FaithBar as TextureProgressBar
+@onready var received_item: bool = false
 
 
 func _ready() -> void:
@@ -44,7 +45,7 @@ func _ready() -> void:
 		sprite_2d.texture = data.texture
 		animation_player.play(&"idle")
 		animation_player.speed_scale = 0.5
-		faith = 1
+		faith = 3
 
 		CycleManager.period_started.connect(_on_cycle_manager_period_started)
 		SignalBus.player_grabbed_item.connect(_on_player_grabbed_item)
@@ -72,6 +73,11 @@ func _on_area_exited(_area: Area2D) -> void:
 
 
 func _on_cycle_manager_period_started(period: CycleManager.PERIOD) -> void:
+	if CycleManager.current_cycle > 1 and period == CycleManager.PERIOD.DAY:
+		if not received_item:
+			faith -= 1
+		received_item = false
+
 	if period & data.active_period:
 		visible = true
 		monitoring = true
@@ -95,6 +101,8 @@ func _on_player_released_item(_item_type: ItemManager.ITEM_TYPE) -> void:
 
 
 func collect(item: Item) -> void:
+	received_item = true
+
 	for trade in data.trades:
 		if trade.request == item.type or trade.request == ItemManager.ITEM_TYPE.ANY:
 			spawn_reward(trade.reward)

@@ -1,6 +1,6 @@
 [gd_scene load_steps=12 format=3 uid="uid://dfrxet8rlm526"]
 
-[ext_resource type="Script" path="res://scenes/new_trade_bubble/new_trade_bubble.gd" id="1_vreks"]
+[ext_resource type="Script" path="res://scenes/ui/new_trade_bubble/new_trade_bubble.gd" id="1_vreks"]
 [ext_resource type="Texture2D" uid="uid://cxt0bupwaliv4" path="res://assets/ui.png" id="1_yt0ra"]
 [ext_resource type="Texture2D" uid="uid://d140l2bv4vvky" path="res://assets/creatures_and_items.png" id="2_4s42i"]
 

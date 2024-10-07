@@ -1,15 +1,27 @@
-[gd_resource type="Resource" script_class="CreatureData" load_steps=5 format=3 uid="uid://qkw7xsa30b40"]
+[gd_resource type="Resource" script_class="CreatureData" load_steps=9 format=3 uid="uid://qkw7xsa30b40"]
 
 [ext_resource type="Script" path="res://scenes/creature/creature_data.gd" id="1_bc45j"]
 [ext_resource type="Texture2D" uid="uid://d140l2bv4vvky" path="res://assets/creatures_and_items.png" id="2_aanrl"]
 [ext_resource type="Script" path="res://scenes/creature/trade_data.gd" id="2_ovyx7"]
+[ext_resource type="Resource" uid="uid://b5xnpdgdgb0mu" path="res://scenes/item/items/slime.tres" id="4_6qegq"]
+[ext_resource type="Resource" uid="uid://da8m1wyrhrgqd" path="res://scenes/item/items/bomb.tres" id="5_dh855"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hbsvl"]
 atlas = ExtResource("2_aanrl")
 region = Rect2(530, 2, 20, 20)
 
+[sub_resource type="Resource" id="Resource_ambxr"]
+script = ExtResource("2_ovyx7")
+request = 27
+reward = ExtResource("4_6qegq")
+
+[sub_resource type="Resource" id="Resource_tlo8r"]
+script = ExtResource("2_ovyx7")
+request = 25
+reward = ExtResource("5_dh855")
+
 [resource]
 script = ExtResource("1_bc45j")
 texture = SubResource("AtlasTexture_hbsvl")
-active_period = 1
-trades = Array[ExtResource("2_ovyx7")]([])
+active_period = 2
+trades = Array[ExtResource("2_ovyx7")]([SubResource("Resource_ambxr"), SubResource("Resource_tlo8r")])
