@@ -15,9 +15,11 @@ var type: ItemManager.ITEM_TYPE:
 		if not is_grabbed and ig:
 			SignalBus.player_grabbed_item.emit(type)
 			sprite_2d.material.set_shader_parameter(&"outline_color", Color("fee761"))
+			audio_stream_player.play()
 		elif is_grabbed and not ig:
 			SignalBus.player_released_item.emit(type)
 			sprite_2d.material.set_shader_parameter(&"outline_color", Color("ffffff"))
+			audio_stream_player.play()
 		is_grabbed = ig
 @onready var is_in_storage: bool = false:
 	set(iis):
@@ -26,6 +28,7 @@ var type: ItemManager.ITEM_TYPE:
 		is_in_storage = iis
 @onready var offset: Vector2 = Vector2.ZERO
 @onready var sprite_2d: Sprite2D = $Sprite2D as Sprite2D
+@onready var audio_stream_player: AudioStreamPlayer = $AudioStreamPlayer as AudioStreamPlayer
 
 
 func _ready() -> void:

@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://b7lon3lteco0x"]
+[gd_scene load_steps=11 format=3 uid="uid://b7lon3lteco0x"]
 
 [ext_resource type="Script" path="res://scenes/ui/ui.gd" id="1_em8dl"]
 [ext_resource type="Texture2D" uid="uid://bg4jaq7fxrvuu" path="res://assets/faith_bar_under.png" id="1_o4nju"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://dfrxet8rlm526" path="res://scenes/ui/new_trade_bubble/new_trade_bubble.tscn" id="4_j53vm"]
 [ext_resource type="PackedScene" uid="uid://devogahwjpp4b" path="res://scenes/ui/trade_counter/trade_counter.tscn" id="4_ppbdp"]
 [ext_resource type="FontFile" uid="uid://b045jljbteq85" path="res://assets/fonts/m6x11plus.ttf" id="5_thqmk"]
+[ext_resource type="AudioStream" uid="uid://drglblpien7tj" path="res://assets/music/8bit-mix-56351.mp3" id="7_xj4k4"]
 
 [sub_resource type="Animation" id="Animation_shmuo"]
 resource_name = "typewriter"
@@ -168,7 +169,7 @@ layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 8
 theme_override_fonts/font = ExtResource("5_thqmk")
-theme_override_font_sizes/font_size = 54
+theme_override_font_sizes/font_size = 36
 text = "Press [space] to advance time."
 
 [node name="Timer" type="Timer" parent="MarginContainer/Tip"]
@@ -186,6 +187,11 @@ grow_horizontal = 2
 grow_vertical = 0
 
 [node name="NewTradeBubble" parent="NewTradeBubblePosition" instance=ExtResource("4_j53vm")]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_xj4k4")
+autoplay = true
+parameters/looping = true
 
 [connection signal="pressed" from="MarginContainer/EndGamePanel/VBoxContainer/Button" to="." method="_on_button_pressed"]
 [connection signal="timeout" from="MarginContainer/Tip/Timer" to="." method="_on_timer_timeout"]
